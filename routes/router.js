@@ -1,25 +1,44 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/new', (req, res) => {
-    res.send('form');
-});
 
-router.post('/', (req, res) => {
+
+// display form when you navigate to /new
+// router.get('/new', (req, res) => {
+//     res.render('form');
+//   });
+
+
+const messages = [
+  {
+    text: "Hi there!",
+    user: "Amando",
+    added: new Date()
+  },
+  {
+    text: "Hello World!",
+    user: "Charles",
+    added: new Date()
+  }
+];
+  
+router.post('/new', (req, res) => {
     const newMessage = {
-        id: uuid.v4(),
-        text: req.body.messageText,
-        user: req.body.messageUser,
-        added: req.body.newDate(),
+        text: req.body.text,
+        user: req.body.user,
+        added: new Date(),
         status: 'active'
     }
-
+  
     if (!newMessage.user || !newMessage.text) {
-        return res.status(400).json({msg: 'Pls include a name or text'});
+        return res.status(400).json({msg: 'Pls include a user or text'});
     }
-    messages.push({ text: messageText, user: messageUser, added: newDate() });
-    res.redirect("/");
+  
+    messages.push(newMessage);
+    // res.json(messages);
+    console.log(res.redirect('/'));
+  
+  });
+  
 
-});
-
-modules.exports = router;
+module.exports = router;
