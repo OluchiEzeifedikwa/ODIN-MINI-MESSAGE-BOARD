@@ -13,7 +13,17 @@ const messages = [
     added: new Date()
   }
 ];
-  
+
+//display form
+router.get('/new', (req, res) => {
+  res.render('form');
+});
+
+// displays existing messages, renders the index.ejs
+router.get("/", (req, res) => {
+  res.render("index", {h1: "Mini Messageboard", messages: messages})
+});
+
 router.post('/new', (req, res) => {
     const newMessage = {
         text: req.body.text,
@@ -27,9 +37,9 @@ router.post('/new', (req, res) => {
     }
   
     messages.push(newMessage);
-    // res.json(messages);
     console.log(res.redirect('/'));
   
   });
-  
+
 module.exports = router;
+
