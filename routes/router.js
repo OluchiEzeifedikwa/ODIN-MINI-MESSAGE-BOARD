@@ -1,14 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-
-
-// display form when you navigate to /new
-// router.get('/new', (req, res) => {
-//     res.render('form');
-//   });
-
-
 const messages = [
   {
     text: "Hi there!",
@@ -40,5 +32,4 @@ router.post('/new', (req, res) => {
   
   });
   
-
 module.exports = router;
