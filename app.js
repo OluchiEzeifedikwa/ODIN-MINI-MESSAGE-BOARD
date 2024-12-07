@@ -12,4 +12,4 @@ app.use(router);
 const PORT = 8000;
 app.listen(PORT, () => {
     console.log(`server listening at PORT ${PORT}`)
-})
+});
