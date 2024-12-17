@@ -2,9 +2,11 @@
     <ul>
       <% for (let i = 0; i < messages.length; i++) { %>
         <li>
-          <a href="/new/ <%= messages[i].href %>">Open
+          <div class="container"><%= messages[i].text %>
+            <%= messages[i].user %> 
+            <span> <%= messages[i].added %> </span></div>
+          <a href="/new/ <%= messages[i].href %>">ADD A NEW MESSAGE</a>
           <span> <%= messages[i].text %> </span>
-          </a>
           <span> <%= messages[i].user %> </span>
           <span> <%= messages[i].added %> </span>
         </li>
